@@ -1,0 +1,584 @@
+{
+  "summary": {
+    "total_sent_usd": 10762.600865612732,
+    "total_received_usd": 9606.411818414625,
+    "net_position_usd": -1156.1890471981078,
+    "roi_percentage": -10.742654695039496,
+    "total_transactions": 643,
+    "unique_currencies": 10,
+    "last_updated": "2025-05-26T00:17:39.096432"
+  },
+  "portfolio_breakdown": {
+    "SOL": {
+      "amounts": {
+        "sent": 16.01886638172435,
+        "received": 8.776309233834656,
+        "net": -7.242557147889695
+      },
+      "usd_values": {
+        "sent": 2855.5231212061826,
+        "received": 1564.4648840233658,
+        "net": -1291.058237182817
+      },
+      "market_data": {
+        "price": 178.26,
+        "market_cap": 92750890916.16876,
+        "volume_24h": 3845405717.553956,
+        "price_change_24h": 2.9018276670465313,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 69,
+        "received": 59
+      },
+      "avg_transaction_size": {
+        "sent": 0.23215748379310652,
+        "received": 0.14875100396329927
+      }
+    },
+    "MATIC": {
+      "amounts": {
+        "sent": 83,
+        "received": 83.9281708286517,
+        "net": 0.9281708286517016
+      },
+      "usd_values": {
+        "sent": 19.724784,
+        "received": 19.94536194108742,
+        "net": 0.2205779410874196
+      },
+      "market_data": {
+        "price": 0.237648,
+        "market_cap": 360077381.50028384,
+        "volume_24h": 1987921.1510254408,
+        "price_change_24h": 2.8915186313509413,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 3,
+        "received": 3
+      },
+      "avg_transaction_size": {
+        "sent": 27.666666666666668,
+        "received": 27.9760569428839
+      }
+    },
+    "ADA": {
+      "amounts": {
+        "sent": 0,
+        "received": 10.671742748274,
+        "net": 10.671742748274
+      },
+      "usd_values": {
+        "sent": 0.0,
+        "received": 8.214200469487722,
+        "net": 8.214200469487722
+      },
+      "market_data": {
+        "price": 0.769715,
+        "market_cap": 27764046412.955853,
+        "volume_24h": 673843910.088471,
+        "price_change_24h": 4.149687286028124,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 0,
+        "received": 1
+      },
+      "avg_transaction_size": {
+        "sent": 0.0,
+        "received": 10.671742748274
+      }
+    },
+    "DOT": {
+      "amounts": {
+        "sent": 30.964430305727,
+        "received": 0.46837125919422,
+        "net": -30.49605904653278
+      },
+      "usd_values": {
+        "sent": 142.12673510328693,
+        "received": 2.1498240797014696,
+        "net": -139.97691102358544
+      },
+      "market_data": {
+        "price": 4.59,
+        "market_cap": 6989041572.000841,
+        "volume_24h": 205251054.400643,
+        "price_change_24h": 1.519932328705576,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 2,
+        "received": 1
+      },
+      "avg_transaction_size": {
+        "sent": 15.4822151528635,
+        "received": 0.46837125919422
+      }
+    },
+    "LTC": {
+      "amounts": {
+        "sent": 13.311640240127446,
+        "received": 13.519279914006592,
+        "net": 0.2076396738791466
+      },
+      "usd_values": {
+        "sent": 1291.2291032923622,
+        "received": 1311.3701516586395,
+        "net": 20.14104836627722
+      },
+      "market_data": {
+        "price": 97.0,
+        "market_cap": 7360464021.542008,
+        "volume_24h": 350829766.4515681,
+        "price_change_24h": 1.3845251411684916,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 19,
+        "received": 73
+      },
+      "avg_transaction_size": {
+        "sent": 0.700612644217234,
+        "received": 0.18519561526036427
+      }
+    },
+    "XRP": {
+      "amounts": {
+        "sent": 759.4798705130481,
+        "received": 817.818443031482,
+        "net": 58.33857251843392
+      },
+      "usd_values": {
+        "sent": 1784.777695705663,
+        "received": 1921.873341123983,
+        "net": 137.09564541831972
+      },
+      "market_data": {
+        "price": 2.35,
+        "market_cap": 137988701517.70557,
+        "volume_24h": 1982603640.3053436,
+        "price_change_24h": 1.588892533603429,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 41,
+        "received": 37
+      },
+      "avg_transaction_size": {
+        "sent": 18.523899280806052,
+        "received": 22.10320116301303
+      }
+    },
+    "USDT": {
+      "amounts": {
+        "sent": 1533.8696340722656,
+        "received": 3042.7508069907085,
+        "net": 1508.8811729184429
+      },
+      "usd_values": {
+        "sent": 1533.8696340722656,
+        "received": 3042.7508069907085,
+        "net": 1508.8811729184429
+      },
+      "market_data": {
+        "price": 1.0,
+        "market_cap": 152794270151.14197,
+        "volume_24h": 45820317979.40643,
+        "price_change_24h": 0.023004014151709558,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 147,
+        "received": 78
+      },
+      "avg_transaction_size": {
+        "sent": 10.434487306614052,
+        "received": 39.00962573065011
+      }
+    },
+    "ETH": {
+      "amounts": {
+        "sent": 0.11591494896448333,
+        "received": 0.15461448722359986,
+        "net": 0.038699538259116525
+      },
+      "usd_values": {
+        "sent": 299.64941626910655,
+        "received": 399.6908186319835,
+        "net": 100.04140236287695
+      },
+      "market_data": {
+        "price": 2585.08,
+        "market_cap": 312051402057.46265,
+        "volume_24h": 13846793922.616837,
+        "price_change_24h": 3.2978413008672165,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 15,
+        "received": 9
+      },
+      "avg_transaction_size": {
+        "sent": 0.007727663264298888,
+        "received": 0.017179387469288872
+      }
+    },
+    "TRX": {
+      "amounts": {
+        "sent": 8506.693783156259,
+        "received": 4898.854187858473,
+        "net": -3607.839595297786
+      },
+      "usd_values": {
+        "sent": 2318.0825626038636,
+        "received": 1334.9426650456217,
+        "net": -983.1398975582421
+      },
+      "market_data": {
+        "price": 0.272501,
+        "market_cap": 25857280994.575165,
+        "volume_24h": 584102533.9162456,
+        "price_change_24h": -0.03035131700287974,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 40,
+        "received": 36
+      },
+      "avg_transaction_size": {
+        "sent": 212.66734457890647,
+        "received": 136.07928299606868
+      }
+    },
+    "USDC": {
+      "amounts": {
+        "sent": 517.74,
+        "received": 1.0100028107096,
+        "net": -516.7299971892904
+      },
+      "usd_values": {
+        "sent": 517.61781336,
+        "received": 1.0097644500462726,
+        "net": -516.6080489099537
+      },
+      "market_data": {
+        "price": 0.999764,
+        "market_cap": 61676968731.48313,
+        "volume_24h": 7445254874.578705,
+        "price_change_24h": -0.0029554976051681843,
+        "price_change_7d": 0,
+        "last_updated": 1748243859
+      },
+      "transaction_counts": {
+        "sent": 9,
+        "received": 1
+      },
+      "avg_transaction_size": {
+        "sent": 57.52666666666667,
+        "received": 1.0100028107096
+      }
+    }
+  },
+  "risk_analysis": {
+    "overall_risk_score": 35.841039422110086,
+    "currency_risks": {
+      "SOL": {
+        "volatility_24h": 2.9018276670465313,
+        "volatility_7d": 0,
+        "market_cap_rank": "Mid Cap",
+        "liquidity_score": 4.145950167777426,
+        "concentration_risk": 0.8252395118403532
+      },
+      "MATIC": {
+        "volatility_24h": 2.8915186313509413,
+        "volatility_7d": 0,
+        "market_cap_rank": "Micro Cap",
+        "liquidity_score": 0.5520816505448493,
+        "concentration_risk": 0.00013921769418573195
+      },
+      "ADA": {
+        "volatility_24h": 4.149687286028124,
+        "volatility_7d": 0,
+        "market_cap_rank": "Mid Cap",
+        "liquidity_score": 2.4270378318270915,
+        "concentration_risk": 0.005157650623711201
+      },
+      "DOT": {
+        "volatility_24h": 1.519932328705576,
+        "volatility_7d": 0,
+        "market_cap_rank": "Small Cap",
+        "liquidity_score": 2.936755380350144,
+        "concentration_risk": 0.08777224063095895
+      },
+      "LTC": {
+        "volatility_24h": 1.3845251411684916,
+        "volatility_7d": 0,
+        "market_cap_rank": "Small Cap",
+        "liquidity_score": 4.766408278401851,
+        "concentration_risk": 0.0069305049716772895
+      },
+      "XRP": {
+        "volatility_24h": 1.588892533603429,
+        "volatility_7d": 0,
+        "market_cap_rank": "Large Cap",
+        "liquidity_score": 1.4367869387124803,
+        "concentration_risk": 0.028395845280552466
+      },
+      "USDT": {
+        "volatility_24h": 0.023004014151709558,
+        "volatility_7d": 0,
+        "market_cap_rank": "Large Cap",
+        "liquidity_score": 29.988243625943312,
+        "concentration_risk": 0.19170696729854783
+      },
+      "ETH": {
+        "volatility_24h": 3.2978413008672165,
+        "volatility_7d": 0,
+        "market_cap_rank": "Large Cap",
+        "liquidity_score": 4.437343921969311,
+        "concentration_risk": 0.012096232827999353
+      },
+      "TRX": {
+        "volatility_24h": 0.03035131700287974,
+        "volatility_7d": 0,
+        "market_cap_rank": "Mid Cap",
+        "liquidity_score": 2.258948007869775,
+        "concentration_risk": 0.10235281064080563
+      },
+      "USDC": {
+        "volatility_24h": 0.0029554976051681843,
+        "volatility_7d": 0,
+        "market_cap_rank": "Mid Cap",
+        "liquidity_score": 12.071369633926675,
+        "concentration_risk": 0.05377742060981216
+      }
+    },
+    "diversification_score": 76.39685445483786,
+    "largest_position_risk": 0.15707021533535068
+  },
+  "activity_analysis": {
+    "monthly_trends": {
+      "monthly_data": {
+        "2025-05": {
+          "sent": 4,
+          "received": 0,
+          "volume": 4
+        },
+        "2025-04": {
+          "sent": 0.48500000000000004,
+          "received": 0,
+          "volume": 0.48500000000000004
+        },
+        "2025-03": {
+          "sent": 0,
+          "received": 5.0026764048401,
+          "volume": 5.0026764048401
+        },
+        "2025-02": {
+          "sent": 0,
+          "received": 14.675867352185,
+          "volume": 14.675867352185
+        },
+        "2025-01": {
+          "sent": 381.6157756079213,
+          "received": 813.872557495318,
+          "volume": 1195.4883331032393
+        },
+        "2024-12": {
+          "sent": 1336.9745985619563,
+          "received": 1218.6765355595537,
+          "volume": 2555.6511341215096
+        },
+        "2024-11": {
+          "sent": 2903.0829298257904,
+          "received": 584.0364068238256,
+          "volume": 3487.119336649616
+        },
+        "2024-10": {
+          "sent": 0.9474227974214634,
+          "received": 1065.2219955810558,
+          "volume": 1066.1694183784773
+        },
+        "2024-09": {
+          "sent": 46.85777427153489,
+          "received": 152.6008060223083,
+          "volume": 199.45858029384323
+        },
+        "2024-08": {
+          "sent": 424.4325,
+          "received": 755.4086509648023,
+          "volume": 1179.8411509648022
+        },
+        "2024-07": {
+          "sent": 3123.936969649073,
+          "received": 924.1914687538759,
+          "volume": 4048.1284384029495
+        },
+        "2024-06": {
+          "sent": 3047.6650194944214,
+          "received": 3308.686755677038,
+          "volume": 6356.35177517146
+        },
+        "2024-05": {
+          "sent": 191.19614941,
+          "received": 35.57820852775585,
+          "volume": 226.77435793775584
+        }
+      },
+      "average_monthly_volume": 1564.5496975985136,
+      "peak_activity_month": "2024-06",
+      "growth_trend": "decreasing",
+      "total_months_active": 13
+    },
+    "top_counterparties": [
+      {
+        "username": "BetOnGamba",
+        "total_volume": 7255.854853481469,
+        "sent": 3755.879479401535,
+        "received": 3499.975374079934,
+        "net_flow": -255.90410532160058,
+        "transactions": 109
+      },
+      {
+        "username": "Dan",
+        "total_volume": 3007.424880425923,
+        "sent": 54.762499999999996,
+        "received": 2952.6623804259234,
+        "net_flow": 2897.8998804259236,
+        "transactions": 106
+      },
+      {
+        "username": "letgonowok",
+        "total_volume": 1699.7447789248165,
+        "sent": 750.1,
+        "received": 949.6447789248165,
+        "net_flow": 199.54477892481646,
+        "transactions": 18
+      },
+      {
+        "username": "S7AK7AU7O",
+        "total_volume": 1318.158993907206,
+        "sent": 1318.0549703213528,
+        "received": 0.10402358585312,
+        "net_flow": -1317.9509467354997,
+        "transactions": 14
+      },
+      {
+        "username": "bossmanjacks",
+        "total_volume": 865.3153527858685,
+        "sent": 582.2712433403685,
+        "received": 283.0441094455,
+        "net_flow": -299.22713389486853,
+        "transactions": 29
+      },
+      {
+        "username": "Letgowok",
+        "total_volume": 831.569011747698,
+        "sent": 750,
+        "received": 81.569011747698,
+        "net_flow": -668.430988252302,
+        "transactions": 3
+      },
+      {
+        "username": "Wormy",
+        "total_volume": 738.9155291906127,
+        "sent": 713.183,
+        "received": 25.732529190612738,
+        "net_flow": -687.4504708093873,
+        "transactions": 9
+      },
+      {
+        "username": "pascosfinest",
+        "total_volume": 619.5803571803956,
+        "sent": 614.0926652346604,
+        "received": 5.4876919457351,
+        "net_flow": -608.6049732889253,
+        "transactions": 13
+      },
+      {
+        "username": "CodeCompiler",
+        "total_volume": 600,
+        "sent": 600,
+        "received": 0,
+        "net_flow": -600,
+        "transactions": 1
+      },
+      {
+        "username": "Guilty",
+        "total_volume": 589.7497167062597,
+        "sent": 318.2964553361677,
+        "received": 271.45326137009204,
+        "net_flow": -46.84319396607566,
+        "transactions": 35
+      }
+    ],
+    "transaction_patterns": {
+      "average_transaction_size": 31.631642408679124,
+      "median_transaction_size": 2.5,
+      "largest_transaction": 2600,
+      "smallest_transaction": 0.00025469814386288,
+      "most_active_hour": 0,
+      "most_active_day": "Tuesday",
+      "hourly_distribution": {
+        "2": 12,
+        "18": 29,
+        "8": 49,
+        "7": 22,
+        "5": 12,
+        "20": 44,
+        "1": 48,
+        "15": 10,
+        "19": 11,
+        "4": 41,
+        "10": 8,
+        "21": 29,
+        "13": 14,
+        "12": 12,
+        "3": 39,
+        "11": 25,
+        "6": 48,
+        "23": 7,
+        "14": 6,
+        "0": 71,
+        "9": 46,
+        "17": 22,
+        "22": 20,
+        "16": 18
+      },
+      "daily_distribution": {
+        "Wednesday": 87,
+        "Saturday": 89,
+        "Sunday": 111,
+        "Thursday": 69,
+        "Tuesday": 115,
+        "Monday": 89,
+        "Friday": 83
+      }
+    }
+  },
+  "tax_analysis": {
+    "total_realized_gains": 1774.5940474764918,
+    "total_realized_losses": 2930.783094674598,
+    "net_tax_position": -1156.1890471981062,
+    "taxable_events_count": 643,
+    "note": "This is a simplified calculation. Consult a tax professional for accurate tax advice."
+  },
+  "market_context": {
+    "total_tracked_market_cap": 3011263157979.414,
+    "average_24h_change": 1.792537870256694,
+    "market_sentiment": "neutral",
+    "currencies_tracked": 11,
+    "last_updated": "2025-05-26T00:17:39.100631"
+  }
+}

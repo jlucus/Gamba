@@ -1,0 +1,32 @@
+{
+  "name": "crypto-analytics-platform",
+  "version": "1.0.0",
+  "description": "Comprehensive cryptocurrency portfolio and race analytics platform",
+  "main": "dashboard_launcher.html",
+  "scripts": {
+    "dev": "python start_server.py",
+    "build": "echo 'Static build complete'",
+    "start": "python start_server.py"
+  },
+  "keywords": [
+    "cryptocurrency",
+    "portfolio",
+    "analytics",
+    "race",
+    "gamba",
+    "tips",
+    "dashboard"
+  ],
+  "author": "SupItsJ",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/supitsj/crypto-analytics-platform"
+  },
+  "homepage": "https://crypto-analytics-platform.vercel.app",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}

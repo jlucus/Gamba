@@ -1,0 +1,57 @@
+{
+  "get_race_by_id": {
+    "description": "Fetch race data by ID",
+    "method": "GET",
+    "url_template": "https://gamba.com/_api/@?operationName=getRaceById&variables={variables}&extensions={extensions}",
+    "variables": {
+      "raceId": 98
+    },
+    "extensions": {
+      "persistedQuery": {
+        "version": 1,
+        "sha256Hash": "c682a2e9795a0f35f291d417f01543135f4be142180598bcb6159c26ba2177ef"
+      }
+    },
+    "headers": {
+      "accept": "*/*",
+      "authorization": "Bearer YOUR_TOKEN_HERE",
+      "content-type": "application/json",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    },
+    "example_response": {
+      "data": {
+        "getRaceById": {
+          "id": "98",
+          "prize_pool": 3,
+          "currency_id": "404",
+          "race_name": "$500 BetOnGamba",
+          "competitors": [
+            {
+              "display_name": "PlayerName",
+              "total_wagered": 1000.0,
+              "winner_amount": 50.0,
+              "position": 1,
+              "vip_level_name": "PLATINUM 1"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "batch_fetch": {
+    "description": "Fetch multiple races sequentially",
+    "race_ids": [
+      34,
+      98,
+      99,
+      100
+    ],
+    "rate_limit": "1 request per second recommended",
+    "total_time_estimate": "4 seconds for 4 races"
+  },
+  "monitoring": {
+    "description": "Monitor live race for updates",
+    "check_interval": 300,
+    "use_case": "Track live competition standings"
+  }
+}

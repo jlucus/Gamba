@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips Data Viewer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            padding-top: 100px;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .nav-icon {
+            font-size: 1.1em;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .controls {
+            padding: 20px 30px;
+            background: white;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-group label {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        select, input {
+            padding: 8px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .table-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        th:hover {
+            background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .amount-positive {
+            color: #27ae60;
+            font-weight: bold;
+        }
+
+        .amount-negative {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .type-deposit {
+            background: #d5f4e6;
+            color: #27ae60;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .type-withdraw {
+            background: #ffeaa7;
+            color: #e17055;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .currency-badge {
+            background: #667eea;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .privacy-public {
+            color: #27ae60;
+        }
+
+        .privacy-private {
+            color: #e74c3c;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            padding: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 16px;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: #667eea;
+            color: white;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination .current-page {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Breadcrumb Styles */
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 30px;
+            margin: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .breadcrumb-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: #764ba2;
+        }
+
+        .breadcrumb-current {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .breadcrumb-separator {
+            color: #bbb;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 15px;
+            }
+
+            .nav-link span:not(.nav-icon) {
+                display: none;
+            }
+
+            body {
+                padding: 10px;
+                padding-top: 90px;
+            }
+
+            .breadcrumb {
+                margin: 10px 15px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">🚀</span>
+                <span class="nav-title">Crypto Analytics</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard_launcher.html" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="advanced_tips_viewer.html" class="nav-link">
+                    <span class="nav-icon">💼</span>
+                    <span>Portfolio</span>
+                </a>
+                <a href="races_viewer.html" class="nav-link">
+                    <span class="nav-icon">🏁</span>
+                    <span>Races</span>
+                </a>
+                <a href="tips_viewer.html" class="nav-link active">
+                    <span class="nav-icon">📋</span>
+                    <span>Transactions</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <nav class="breadcrumb-nav">
+                <div class="breadcrumb-item">
+                    <span>🏠</span>
+                    <a href="dashboard_launcher.html" class="breadcrumb-link">Dashboard</a>
+                </div>
+                <span class="breadcrumb-separator">›</span>
+                <div class="breadcrumb-item">
+                    <span>📋</span>
+                    <span class="breadcrumb-current">Transaction Browser</span>
+                </div>
+                <span class="breadcrumb-separator">›</span>
+                <div class="breadcrumb-item">
+                    <span>💰</span>
+                    <span class="breadcrumb-current">All Tips</span>
+                </div>
+            </nav>
+        </div>
+
+        <div class="header">
+            <h1>💰 Tips Transaction Viewer</h1>
+            <p>Consolidated view of all your tip transactions</p>
+        </div>
+
+        <div class="stats-grid" id="statsGrid">
+            <div class="loading">Loading statistics...</div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="typeFilter">Type:</label>
+                <select id="typeFilter">
+                    <option value="">All Types</option>
+                    <option value="Tip Deposit">Deposits</option>
+                    <option value="Tip Withdraw">Withdrawals</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="currencyFilter">Currency:</label>
+                <select id="currencyFilter">
+                    <option value="">All Currencies</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="privacyFilter">Privacy:</label>
+                <select id="privacyFilter">
+                    <option value="">All</option>
+                    <option value="true">Public</option>
+                    <option value="false">Private</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="searchFilter">Search:</label>
+                <input type="text" id="searchFilter" placeholder="Search usernames...">
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="tipsTable">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable('issued_at')">Date</th>
+                        <th onclick="sortTable('type')">Type</th>
+                        <th onclick="sortTable('amount')">Amount</th>
+                        <th onclick="sortTable('currency_code')">Currency</th>
+                        <th onclick="sortTable('sender_username')">From</th>
+                        <th onclick="sortTable('receiver_username')">To</th>
+                        <th onclick="sortTable('is_public')">Privacy</th>
+                        <th onclick="sortTable('status')">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tipsTableBody">
+                    <tr><td colspan="8" class="loading">Loading transactions...</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination" id="pagination"></div>
+    </div>
+
+    <script>
+        let allTips = [];
+        let filteredTips = [];
+        let currentPage = 1;
+        const itemsPerPage = 50;
+        let sortColumn = 'issued_at';
+        let sortDirection = 'desc';
+
+        // Load data
+        async function loadData() {
+            try {
+                const [tipsResponse, analysisResponse] = await Promise.all([
+                    fetch('tips_consolidated.json'),
+                    fetch('tips_analysis.json')
+                ]);
+
+                const tipsData = await tipsResponse.json();
+                const analysisData = await analysisResponse.json();
+
+                allTips = tipsData.data.myTips.results;
+                filteredTips = [...allTips];
+
+                displayStats(analysisData);
+                populateFilters();
+                displayTable();
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('statsGrid').innerHTML = '<div class="loading">Error loading data</div>';
+                document.getElementById('tipsTableBody').innerHTML = '<tr><td colspan="8" class="loading">Error loading data</td></tr>';
+            }
+        }
+
+        function displayStats(stats) {
+            const statsGrid = document.getElementById('statsGrid');
+            statsGrid.innerHTML = `
+                <div class="stat-card">
+                    <div class="stat-number">${stats.total_transactions}</div>
+                    <div class="stat-label">Total Transactions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.deposits}</div>
+                    <div class="stat-label">Deposits</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.withdrawals}</div>
+                    <div class="stat-label">Withdrawals</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${Object.keys(stats.currencies).length}</div>
+                    <div class="stat-label">Currencies</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.public_transactions}</div>
+                    <div class="stat-label">Public</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">${stats.private_transactions}</div>
+                    <div class="stat-label">Private</div>
+                </div>
+            `;
+        }
+
+        function populateFilters() {
+            const currencies = [...new Set(allTips.map(tip => tip.currency_code))].sort();
+            const currencyFilter = document.getElementById('currencyFilter');
+
+            currencies.forEach(currency => {
+                const option = document.createElement('option');
+                option.value = currency;
+                option.textContent = currency;
+                currencyFilter.appendChild(option);
+            });
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString() + ' ' + new Date(dateString).toLocaleTimeString();
+        }
+
+        function formatAmount(amount) {
+            const formatted = Math.abs(amount).toFixed(6).replace(/\.?0+$/, '');
+            return amount >= 0 ? `+${formatted}` : `-${formatted}`;
+        }
+
+        function displayTable() {
+            const tbody = document.getElementById('tipsTableBody');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const pageData = filteredTips.slice(startIndex, endIndex);
+
+            tbody.innerHTML = pageData.map(tip => `
+                <tr>
+                    <td>${formatDate(tip.issued_at)}</td>
+                    <td><span class="type-${tip.type.toLowerCase().replace(' ', '-')}">${tip.type}</span></td>
+                    <td class="amount-${tip.amount >= 0 ? 'positive' : 'negative'}">${formatAmount(tip.amount)}</td>
+                    <td><span class="currency-badge">${tip.currency_code}</span></td>
+                    <td>${tip.sender_username || '-'}</td>
+                    <td>${tip.receiver_username || '-'}</td>
+                    <td class="privacy-${tip.is_public ? 'public' : 'private'}">${tip.is_public ? '🌐 Public' : '🔒 Private'}</td>
+                    <td>${tip.status}</td>
+                </tr>
+            `).join('');
+
+            displayPagination();
+        }
+
+        function displayPagination() {
+            const totalPages = Math.ceil(filteredTips.length / itemsPerPage);
+            const pagination = document.getElementById('pagination');
+
+            pagination.innerHTML = `
+                <button onclick="changePage(1)" ${currentPage === 1 ? 'disabled' : ''}>First</button>
+                <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? 'disabled' : ''}>Previous</button>
+                <span>Page ${currentPage} of ${totalPages}</span>
+                <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+                <button onclick="changePage(${totalPages})" ${currentPage === totalPages ? 'disabled' : ''}>Last</button>
+            `;
+        }
+
+        function changePage(page) {
+            const totalPages = Math.ceil(filteredTips.length / itemsPerPage);
+            if (page >= 1 && page <= totalPages) {
+                currentPage = page;
+                displayTable();
+            }
+        }
+
+        function sortTable(column) {
+            if (sortColumn === column) {
+                sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                sortColumn = column;
+                sortDirection = 'desc';
+            }
+
+            filteredTips.sort((a, b) => {
+                let aVal = a[column];
+                let bVal = b[column];
+
+                if (column === 'amount') {
+                    aVal = parseFloat(aVal);
+                    bVal = parseFloat(bVal);
+                } else if (column === 'issued_at') {
+                    aVal = new Date(aVal);
+                    bVal = new Date(bVal);
+                } else {
+                    aVal = String(aVal).toLowerCase();
+                    bVal = String(bVal).toLowerCase();
+                }
+
+                if (sortDirection === 'asc') {
+                    return aVal > bVal ? 1 : -1;
+                } else {
+                    return aVal < bVal ? 1 : -1;
+                }
+            });
+
+            currentPage = 1;
+            displayTable();
+        }
+
+        function applyFilters() {
+            const typeFilter = document.getElementById('typeFilter').value;
+            const currencyFilter = document.getElementById('currencyFilter').value;
+            const privacyFilter = document.getElementById('privacyFilter').value;
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+
+            filteredTips = allTips.filter(tip => {
+                return (!typeFilter || tip.type === typeFilter) &&
+                       (!currencyFilter || tip.currency_code === currencyFilter) &&
+                       (!privacyFilter || String(tip.is_public) === privacyFilter) &&
+                       (!searchFilter ||
+                        (tip.sender_username && tip.sender_username.toLowerCase().includes(searchFilter)) ||
+                        (tip.receiver_username && tip.receiver_username.toLowerCase().includes(searchFilter)));
+            });
+
+            currentPage = 1;
+            displayTable();
+        }
+
+        // Event listeners
+        document.getElementById('typeFilter').addEventListener('change', applyFilters);
+        document.getElementById('currencyFilter').addEventListener('change', applyFilters);
+        document.getElementById('privacyFilter').addEventListener('change', applyFilters);
+        document.getElementById('searchFilter').addEventListener('input', applyFilters);
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>

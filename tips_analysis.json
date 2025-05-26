@@ -1,0 +1,59 @@
+{
+  "total_transactions": 643,
+  "deposits": 298,
+  "withdrawals": 345,
+  "currencies": {
+    "XRP": 78,
+    "SOL": 128,
+    "USDT": 225,
+    "ADA": 1,
+    "MATIC": 6,
+    "LTC": 92,
+    "USDC": 10,
+    "TRX": 76,
+    "ETH": 24,
+    "DOT": 3
+  },
+  "total_by_currency": {
+    "XRP": 58.338572518433864,
+    "SOL": -7.2425571478897,
+    "USDT": 1508.8811729184445,
+    "ADA": 10.671742748274,
+    "MATIC": 0.9281708286517016,
+    "LTC": 0.2076396738791508,
+    "USDC": -516.7299971892904,
+    "TRX": -3607.8395952977885,
+    "ETH": 0.0386995382591165,
+    "DOT": -30.49605904653278
+  },
+  "date_range": {
+    "earliest": "2024-05-07T21:48:52+00:00",
+    "latest": "2025-05-21T02:04:18+00:00"
+  },
+  "top_senders": {
+    "SupItsJ": 345,
+    "Dan": 95,
+    "BetOnGamba": 87,
+    "coll1de": 22,
+    "Guilty": 19,
+    "letgonowok": 16,
+    "Tobo671": 8,
+    "bossmanjacks": 5,
+    "Sheeeesh": 3,
+    "Cgreens91": 2
+  },
+  "top_receivers": {
+    "SupItsJ": 298,
+    "bossmanjacks": 24,
+    "BetOnGamba": 22,
+    "Thereaper": 21,
+    "Bingbing": 18,
+    "TipurselF": 16,
+    "Guilty": 16,
+    "S7AK7AU7O": 13,
+    "pascosfinest": 12,
+    "Dan": 11
+  },
+  "public_transactions": 369,
+  "private_transactions": 274
+}

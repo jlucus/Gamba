@@ -1,0 +1,210 @@
+{
+    "data": {
+        "getRaceById": {
+            "id": "34",
+            "prize_pool": 100,
+            "currency_id": "456",
+            "start_date": "2024-10-07 00:00:00",
+            "end_date": "2024-10-13 23:59:59",
+            "sponsor_id": "2209",
+            "eligibility": [
+                {
+                    "id": "962",
+                    "code": "SampleCode1",
+                    "usage_limit": null,
+                    "usage_count": 216,
+                    "total_wagered": null,
+                    "__typename": "SponsorCodes"
+                },
+                {
+                    "id": "968",
+                    "code": "SampleCode2",
+                    "usage_limit": null,
+                    "usage_count": 56,
+                    "total_wagered": null,
+                    "__typename": "SponsorCodes"
+                }
+            ],
+            "race_name": "$100 Weekly Sprint",
+            "style": "5",
+            "competitors": [
+                {
+                    "id": "2710",
+                    "competitor_id": "2710",
+                    "vip_level_name": "PLATINUM 2",
+                    "display_name": "Player1",
+                    "total_wagered": 16823.9112795139,
+                    "winner_amount": 50,
+                    "position": 1,
+                    "avatar": "https://example.com/avatar1.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                },
+                {
+                    "id": "8353",
+                    "competitor_id": "8354",
+                    "vip_level_name": "SILVER 2",
+                    "display_name": "Player2",
+                    "total_wagered": 3551.1333620749183,
+                    "winner_amount": 25,
+                    "position": 2,
+                    "avatar": "https://example.com/avatar2.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                },
+                {
+                    "id": "7572",
+                    "competitor_id": "7573",
+                    "vip_level_name": "PLATINUM 3",
+                    "display_name": "Player3",
+                    "total_wagered": 2158.2958029115416,
+                    "winner_amount": 10,
+                    "position": 3,
+                    "avatar": "https://example.com/avatar3.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                },
+                {
+                    "id": "20893",
+                    "competitor_id": "20893",
+                    "vip_level_name": "BRONZE 3",
+                    "display_name": "Player4",
+                    "total_wagered": 1923.786276186384,
+                    "winner_amount": 5,
+                    "position": 4,
+                    "avatar": "https://example.com/avatar4.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                },
+                {
+                    "id": "3759",
+                    "competitor_id": "3759",
+                    "vip_level_name": "GOLD 1",
+                    "display_name": "Player5",
+                    "total_wagered": 708.6862743967308,
+                    "winner_amount": 3,
+                    "position": 5,
+                    "avatar": "https://example.com/avatar5.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                }
+            ],
+            "current_competitor": null,
+            "sponsor": {
+                "id": "2209",
+                "username": "SampleSponsor",
+                "vip_level_name": "DIAMOND 1",
+                "preferences": {
+                    "ghostMode": false,
+                    "showStats": true,
+                    "tipsEnable": true,
+                    "activeCryptoCode": "USDT",
+                    "activeFiatCode": "USD",
+                    "orderedCryptoCodes": [
+                        "BTC",
+                        "ETH",
+                        "SOL",
+                        "XRP",
+                        "USDT",
+                        "DOGE",
+                        "ADA",
+                        "LTC",
+                        "MATIC",
+                        "TRX",
+                        "DOT",
+                        "USDC"
+                    ]
+                },
+                "__typename": "User"
+            },
+            "currency": {
+                "id": "456",
+                "code": "USDT",
+                "__typename": "Currency"
+            },
+            "__typename": "PrivateSponsorWagerRaces"
+        }
+    }
+},
+{
+    "data": {
+        "getRaceById": {
+            "id": "98",
+            "prize_pool": 500,
+            "currency_id": "404",
+            "start_date": "2024-11-03 00:00:00",
+            "end_date": "2024-11-09 23:59:59",
+            "sponsor_id": "2209",
+            "eligibility": [
+                {
+                    "id": "962",
+                    "code": "SampleCode1",
+                    "usage_limit": null,
+                    "usage_count": 216,
+                    "total_wagered": null,
+                    "__typename": "SponsorCodes"
+                },
+                {
+                    "id": "968",
+                    "code": "SampleCode2",
+                    "usage_limit": null,
+                    "usage_count": 56,
+                    "total_wagered": null,
+                    "__typename": "SponsorCodes"
+                }
+            ],
+            "race_name": "$500 Sample Race",
+            "style": "4",
+            "competitors": [
+                {
+                    "id": "1279",
+                    "competitor_id": "1279",
+                    "vip_level_name": "GOLD 3",
+                    "display_name": "TopPlayer",
+                    "total_wagered": 26484.548902206174,
+                    "winner_amount": 250,
+                    "position": 1,
+                    "avatar": "https://example.com/top_avatar.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                },
+                {
+                    "id": "8397",
+                    "competitor_id": "8398",
+                    "vip_level_name": "PLATINUM 3",
+                    "display_name": "SecondPlace",
+                    "total_wagered": 19734.505858220356,
+                    "winner_amount": 125,
+                    "position": 2,
+                    "avatar": "https://example.com/second_avatar.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                },
+                {
+                    "id": "8353",
+                    "competitor_id": "8354",
+                    "vip_level_name": "SILVER 2",
+                    "display_name": "ThirdPlace",
+                    "total_wagered": 9642.587944605986,
+                    "winner_amount": 75,
+                    "position": 3,
+                    "avatar": "https://example.com/third_avatar.png",
+                    "__typename": "PrivateSponsorWagerRaceCompetitors"
+                }
+            ],
+            "current_competitor": null,
+            "sponsor": {
+                "id": "2209",
+                "username": "SampleSponsor",
+                "vip_level_name": "DIAMOND 1",
+                "preferences": {
+                    "ghostMode": false,
+                    "showStats": true,
+                    "tipsEnable": true,
+                    "activeCryptoCode": "USDT",
+                    "activeFiatCode": "USD"
+                },
+                "__typename": "User"
+            },
+            "currency": {
+                "id": "404",
+                "code": "USDT",
+                "__typename": "Currency"
+            },
+            "__typename": "PrivateSponsorWagerRaces"
+        }
+    }
+}

@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Crypto Tips Portfolio Analyzer</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.29.3/index.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            padding-top: 80px;
+        }
+
+        /* Navigation Bar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: #2c3e50;
+        }
+
+        .nav-logo {
+            font-size: 1.5em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #666;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .nav-icon {
+            font-size: 1.1em;
+        }
+
+        /* Breadcrumb Styles */
+        .breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 30px;
+            margin: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .breadcrumb-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb-link:hover {
+            color: #764ba2;
+        }
+
+        .breadcrumb-current {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .breadcrumb-separator {
+            color: #bbb;
+            margin: 0 5px;
+        }
+
+        .app-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 3em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .last-updated {
+            background: #f8f9fa;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .metric:hover {
+            background: #e9ecef;
+            transform: scale(1.05);
+        }
+
+        .metric-value {
+            font-size: 2em;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .positive { color: #27ae60; }
+        .negative { color: #e74c3c; }
+        .neutral { color: #3498db; }
+
+        .portfolio-breakdown {
+            display: grid;
+            gap: 15px;
+        }
+
+        .currency-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .currency-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .currency-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .currency-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 0.8em;
+        }
+
+        .currency-details h4 {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .currency-details p {
+            margin: 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .currency-values {
+            text-align: right;
+        }
+
+        .currency-values .amount {
+            font-weight: 700;
+            font-size: 1.1em;
+        }
+
+        .currency-values .usd {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        .demographics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .demographic-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .demographic-item:hover {
+            background: #e9ecef;
+        }
+
+        .rank {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .user-info {
+            flex: 1;
+            margin-left: 15px;
+        }
+
+        .user-info .username {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .user-info .stats {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .value {
+            font-weight: 700;
+            text-align: right;
+        }
+
+        .risk-indicator {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .risk-low { background: #d5f4e6; color: #27ae60; }
+        .risk-medium { background: #ffeaa7; color: #e17055; }
+        .risk-high { background: #fab1a0; color: #e74c3c; }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        .tabs {
+            display: flex;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .tab:not(.active):hover {
+            background: #f8f9fa;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .metric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="nav-logo">🚀</span>
+                <span class="nav-title">Crypto Analytics</span>
+            </div>
+            <div class="nav-links">
+                <a href="dashboard_launcher.html" class="nav-link">
+                    <span class="nav-icon">🏠</span>
+                    <span>Dashboard</span>
+                </a>
+                <a href="advanced_tips_viewer.html" class="nav-link active">
+                    <span class="nav-icon">💼</span>
+                    <span>Portfolio</span>
+                </a>
+                <a href="races_viewer.html" class="nav-link">
+                    <span class="nav-icon">🏁</span>
+                    <span>Races</span>
+                </a>
+                <a href="tips_viewer.html" class="nav-link">
+                    <span class="nav-icon">📋</span>
+                    <span>Transactions</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <!-- Breadcrumb Navigation -->
+        <div class="breadcrumb">
+            <nav class="breadcrumb-nav">
+                <div class="breadcrumb-item">
+                    <span>🏠</span>
+                    <a href="dashboard_launcher.html" class="breadcrumb-link">Dashboard</a>
+                </div>
+                <span class="breadcrumb-separator">›</span>
+                <div class="breadcrumb-item">
+                    <span>💼</span>
+                    <span class="breadcrumb-current">Portfolio Analytics</span>
+                </div>
+                <span class="breadcrumb-separator">›</span>
+                <div class="breadcrumb-item">
+                    <span>📊</span>
+                    <span class="breadcrumb-current">Advanced View</span>
+                </div>
+            </nav>
+        </div>
+
+        <div class="header">
+            <h1>💰 Advanced Crypto Portfolio Analyzer</h1>
+            <p class="subtitle">Comprehensive analysis of your tip transactions with real-time market data</p>
+            <div class="last-updated" id="lastUpdated">Loading...</div>
+        </div>
+
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('overview')">📊 Overview</div>
+            <div class="tab" onclick="switchTab('portfolio')">💼 Portfolio</div>
+            <div class="tab" onclick="switchTab('demographics')">👥 Demographics</div>
+            <div class="tab" onclick="switchTab('analytics')">📈 Analytics</div>
+            <div class="tab" onclick="switchTab('risk')">⚠️ Risk Analysis</div>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h2 class="card-title">💸 Financial Summary</h2>
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="metric-value positive" id="totalReceived">$0</div>
+                            <div class="metric-label">Total Received</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value negative" id="totalSent">$0</div>
+                            <div class="metric-label">Total Sent</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="netPosition">$0</div>
+                            <div class="metric-label">Net Position</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="roiPercentage">0%</div>
+                            <div class="metric-label">ROI</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">📊 Transaction Stats</h2>
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="metric-value neutral" id="totalTransactions">0</div>
+                            <div class="metric-label">Total Transactions</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value neutral" id="uniqueCurrencies">0</div>
+                            <div class="metric-label">Currencies</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value neutral" id="avgTransactionSize">$0</div>
+                            <div class="metric-label">Avg Transaction</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value neutral" id="largestTransaction">$0</div>
+                            <div class="metric-label">Largest Transaction</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">🎲 Risk Assessment</h2>
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="metric-value" id="overallRisk">0</div>
+                            <div class="metric-label">Overall Risk Score</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="diversificationScore">0</div>
+                            <div class="metric-label">Diversification</div>
+                        </div>
+                    </div>
+                    <div id="riskIndicator" class="risk-indicator risk-low" style="margin-top: 15px;">Low Risk</div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">🤝 Dan vs Others Analysis</h2>
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <div class="metric-value positive" id="danContributions">$0</div>
+                            <div class="metric-label">Dan's Tips to You</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value negative" id="tipsToOthers">$0</div>
+                            <div class="metric-label">Your Tips to Others</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="danDeficit">$0</div>
+                            <div class="metric-label">Net Deficit</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value neutral" id="danCoverage">0%</div>
+                            <div class="metric-label">Dan Coverage</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 10px; font-size: 0.9em; color: #666;">
+                        <strong>Insight:</strong> <span id="danInsight">Loading analysis...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="portfolio" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">💼 Portfolio Breakdown</h2>
+                <div id="portfolioBreakdown" class="portfolio-breakdown">
+                    <div class="loading">Loading portfolio data...</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">📈 Portfolio Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="portfolioChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="demographics" class="tab-content">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h2 class="card-title">👑 Top Senders</h2>
+                    <div id="topSenders" class="demographics-grid">
+                        <div class="loading">Loading demographics...</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">🎯 Top Recipients</h2>
+                    <div id="topRecipients" class="demographics-grid">
+                        <div class="loading">Loading demographics...</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2 class="card-title">🤝 Counterparty Analysis</h2>
+                <div id="counterpartyAnalysis">
+                    <div class="loading">Loading counterparty data...</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="analytics" class="tab-content">
+            <div class="dashboard-grid">
+                <div class="card">
+                    <h2 class="card-title">📅 Monthly Activity Trends</h2>
+                    <div class="chart-container">
+                        <canvas id="activityChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title">⏰ Transaction Patterns</h2>
+                    <div class="chart-container">
+                        <canvas id="patternsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="risk" class="tab-content">
+            <div class="card">
+                <h2 class="card-title">⚠️ Risk Analysis</h2>
+                <div id="riskAnalysis">
+                    <div class="loading">Loading risk analysis...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let portfolioData = null;
+        let currentTab = 'overview';
+
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+
+            currentTab = tabName;
+
+            // Load tab-specific data
+            if (tabName === 'portfolio' && portfolioData) {
+                renderPortfolioChart();
+            } else if (tabName === 'analytics' && portfolioData) {
+                renderActivityChart();
+                renderPatternsChart();
+            }
+        }
+
+        // Load and display data
+        async function loadData() {
+            try {
+                const response = await fetch('advanced_portfolio_analysis.json');
+                portfolioData = await response.json();
+
+                displayOverview();
+                displayPortfolio();
+                displayDemographics();
+                displayRiskAnalysis();
+
+                // Update last updated time
+                document.getElementById('lastUpdated').textContent =
+                    `Last updated: ${new Date(portfolioData.summary.last_updated).toLocaleString()}`;
+
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.querySelectorAll('.loading').forEach(el => {
+                    el.textContent = 'Error loading data';
+                });
+            }
+        }
+
+        function displayOverview() {
+            const summary = portfolioData.summary;
+            const patterns = portfolioData.activity_analysis.transaction_patterns;
+
+            document.getElementById('totalReceived').textContent = `$${summary.total_received_usd.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+            document.getElementById('totalSent').textContent = `$${summary.total_sent_usd.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+
+            const netPosition = summary.net_position_usd;
+            const netElement = document.getElementById('netPosition');
+            netElement.textContent = `$${netPosition.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+            netElement.className = `metric-value ${netPosition >= 0 ? 'positive' : 'negative'}`;
+
+            const roi = summary.roi_percentage;
+            const roiElement = document.getElementById('roiPercentage');
+            roiElement.textContent = `${roi.toFixed(2)}%`;
+            roiElement.className = `metric-value ${roi >= 0 ? 'positive' : 'negative'}`;
+
+            document.getElementById('totalTransactions').textContent = summary.total_transactions.toLocaleString();
+            document.getElementById('uniqueCurrencies').textContent = summary.unique_currencies;
+            document.getElementById('avgTransactionSize').textContent = `$${patterns.average_transaction_size.toFixed(2)}`;
+            document.getElementById('largestTransaction').textContent = `$${patterns.largest_transaction.toFixed(2)}`;
+
+            // Risk indicators
+            const riskScore = portfolioData.risk_analysis.overall_risk_score;
+            const diversification = portfolioData.risk_analysis.diversification_score;
+
+            document.getElementById('overallRisk').textContent = `${riskScore.toFixed(1)}/100`;
+            document.getElementById('diversificationScore').textContent = `${diversification.toFixed(1)}/100`;
+
+            const riskIndicator = document.getElementById('riskIndicator');
+            if (riskScore < 30) {
+                riskIndicator.className = 'risk-indicator risk-low';
+                riskIndicator.textContent = 'Low Risk';
+            } else if (riskScore < 60) {
+                riskIndicator.className = 'risk-indicator risk-medium';
+                riskIndicator.textContent = 'Medium Risk';
+            } else {
+                riskIndicator.className = 'risk-indicator risk-high';
+                riskIndicator.textContent = 'High Risk';
+            }
+
+            // Dan vs Others Analysis
+            displayDanAnalysis();
+        }
+
+        function displayPortfolio() {
+            const breakdown = portfolioData.portfolio_breakdown;
+            const container = document.getElementById('portfolioBreakdown');
+
+            const currencies = Object.keys(breakdown).sort((a, b) =>
+                Math.abs(breakdown[b].usd_values.net) - Math.abs(breakdown[a].usd_values.net)
+            );
+
+            container.innerHTML = currencies.map(currency => {
+                const data = breakdown[currency];
+                const netAmount = data.amounts.net;
+                const netUSD = data.usd_values.net;
+                const price = data.market_data.price || 0;
+                const change24h = data.market_data.price_change_24h || 0;
+
+                const currencyColors = {
+                    'BTC': '#f7931a', 'ETH': '#627eea', 'USDT': '#26a17b', 'USDC': '#2775ca',
+                    'XRP': '#23292f', 'ADA': '#0033ad', 'SOL': '#9945ff', 'DOT': '#e6007a',
+                    'MATIC': '#8247e5', 'LTC': '#bfbbbb', 'TRX': '#ff060a'
+                };
+
+                return `
+                    <div class="currency-item">
+                        <div class="currency-info">
+                            <div class="currency-icon" style="background: ${currencyColors[currency] || '#666'}">
+                                ${currency}
+                            </div>
+                            <div class="currency-details">
+                                <h4>${currency}</h4>
+                                <p>$${price.toFixed(4)} <span class="${change24h >= 0 ? 'positive' : 'negative'}">(${change24h.toFixed(2)}%)</span></p>
+                            </div>
+                        </div>
+                        <div class="currency-values">
+                            <div class="amount ${netAmount >= 0 ? 'positive' : 'negative'}">
+                                ${netAmount >= 0 ? '+' : ''}${netAmount.toFixed(6)} ${currency}
+                            </div>
+                            <div class="usd ${netUSD >= 0 ? 'positive' : 'negative'}">
+                                ${netUSD >= 0 ? '+' : ''}$${netUSD.toLocaleString('en-US', {minimumFractionDigits: 2})}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function displayDemographics() {
+            const counterparties = portfolioData.activity_analysis.top_counterparties;
+
+            // Top senders (people who sent TO you)
+            const topSenders = counterparties
+                .filter(cp => cp.received > 0)
+                .sort((a, b) => b.received - a.received)
+                .slice(0, 10);
+
+            document.getElementById('topSenders').innerHTML = topSenders.map((sender, index) => `
+                <div class="demographic-item">
+                    <div class="rank">${index + 1}</div>
+                    <div class="user-info">
+                        <div class="username">${sender.username}</div>
+                        <div class="stats">${sender.transactions} transactions</div>
+                    </div>
+                    <div class="value positive">
+                        $${sender.received.toLocaleString('en-US', {minimumFractionDigits: 2})}
+                    </div>
+                </div>
+            `).join('');
+
+            // Top recipients (people you sent TO)
+            const topRecipients = counterparties
+                .filter(cp => cp.sent > 0)
+                .sort((a, b) => b.sent - a.sent)
+                .slice(0, 10);
+
+            document.getElementById('topRecipients').innerHTML = topRecipients.map((recipient, index) => `
+                <div class="demographic-item">
+                    <div class="rank">${index + 1}</div>
+                    <div class="user-info">
+                        <div class="username">${recipient.username}</div>
+                        <div class="stats">${recipient.transactions} transactions</div>
+                    </div>
+                    <div class="value negative">
+                        $${recipient.sent.toLocaleString('en-US', {minimumFractionDigits: 2})}
+                    </div>
+                </div>
+            `).join('');
+
+            // Counterparty analysis
+            const topCounterparties = counterparties
+                .sort((a, b) => b.total_volume - a.total_volume)
+                .slice(0, 15);
+
+            document.getElementById('counterpartyAnalysis').innerHTML = `
+                <div class="demographics-grid">
+                    ${topCounterparties.map((cp, index) => `
+                        <div class="demographic-item">
+                            <div class="rank">${index + 1}</div>
+                            <div class="user-info">
+                                <div class="username">${cp.username}</div>
+                                <div class="stats">
+                                    ${cp.transactions} transactions •
+                                    Net: <span class="${cp.net_flow >= 0 ? 'positive' : 'negative'}">
+                                        $${cp.net_flow.toLocaleString('en-US', {minimumFractionDigits: 2})}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="value">
+                                $${cp.total_volume.toLocaleString('en-US', {minimumFractionDigits: 2})}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function displayRiskAnalysis() {
+            const risk = portfolioData.risk_analysis;
+            const currencyRisks = risk.currency_risks;
+
+            document.getElementById('riskAnalysis').innerHTML = `
+                <div class="metric-grid">
+                    <div class="metric">
+                        <div class="metric-value">${risk.overall_risk_score.toFixed(1)}/100</div>
+                        <div class="metric-label">Overall Risk Score</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">${risk.diversification_score.toFixed(1)}/100</div>
+                        <div class="metric-label">Diversification</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-value">${(risk.largest_position_risk * 100).toFixed(1)}%</div>
+                        <div class="metric-label">Largest Position Risk</div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 30px 0 20px 0;">Currency Risk Breakdown</h3>
+                <div class="portfolio-breakdown">
+                    ${Object.entries(currencyRisks).map(([currency, riskData]) => `
+                        <div class="currency-item">
+                            <div class="currency-info">
+                                <div class="currency-details">
+                                    <h4>${currency}</h4>
+                                    <p>${riskData.market_cap_rank} • Liquidity: ${riskData.liquidity_score.toFixed(1)}/100</p>
+                                </div>
+                            </div>
+                            <div class="currency-values">
+                                <div class="amount">24h Vol: ${riskData.volatility_24h.toFixed(2)}%</div>
+                                <div class="usd">7d Vol: ${riskData.volatility_7d.toFixed(2)}%</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        function renderPortfolioChart() {
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            const breakdown = portfolioData.portfolio_breakdown;
+
+            const data = Object.entries(breakdown).map(([currency, data]) => ({
+                label: currency,
+                value: Math.abs(data.usd_values.net),
+                color: getCurrencyColor(currency)
+            })).filter(item => item.value > 0);
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: data.map(item => item.label),
+                    datasets: [{
+                        data: data.map(item => item.value),
+                        backgroundColor: data.map(item => item.color),
+                        borderWidth: 2,
+                        borderColor: '#fff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    return `${context.label}: $${value.toLocaleString()} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderActivityChart() {
+            const ctx = document.getElementById('activityChart').getContext('2d');
+            const trends = portfolioData.activity_analysis.monthly_trends;
+            const monthlyData = trends.monthly_data;
+
+            const months = Object.keys(monthlyData).sort();
+            const volumes = months.map(month => monthlyData[month].volume);
+
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: months,
+                    datasets: [{
+                        label: 'Monthly Volume ($)',
+                        data: volumes,
+                        borderColor: '#667eea',
+                        backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function renderPatternsChart() {
+            const ctx = document.getElementById('patternsChart').getContext('2d');
+            const patterns = portfolioData.activity_analysis.transaction_patterns;
+            const hourlyData = patterns.hourly_distribution;
+
+            const hours = Array.from({length: 24}, (_, i) => i);
+            const counts = hours.map(hour => hourlyData[hour] || 0);
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: hours.map(h => `${h}:00`),
+                    datasets: [{
+                        label: 'Transactions by Hour',
+                        data: counts,
+                        backgroundColor: 'rgba(102, 126, 234, 0.8)',
+                        borderColor: '#667eea',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        function displayDanAnalysis() {
+            const counterparties = portfolioData.activity_analysis.top_counterparties;
+            const summary = portfolioData.summary;
+
+            // Find Dan in counterparties
+            const dan = counterparties.find(cp => cp.username === 'Dan');
+            const danContributions = dan ? dan.received : 0;
+
+            // Calculate total sent to others (excluding Dan)
+            const danSent = dan ? dan.sent : 0;
+            const totalSentToOthers = summary.total_sent_usd - danSent;
+
+            // Calculate deficit and coverage
+            const deficit = danContributions - totalSentToOthers;
+            const coverage = totalSentToOthers > 0 ? (danContributions / totalSentToOthers) * 100 : 0;
+
+            // Update display
+            document.getElementById('danContributions').textContent = `$${danContributions.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+            document.getElementById('tipsToOthers').textContent = `$${totalSentToOthers.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+
+            const deficitElement = document.getElementById('danDeficit');
+            deficitElement.textContent = `${deficit >= 0 ? '+' : ''}$${deficit.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+            deficitElement.className = `metric-value ${deficit >= 0 ? 'positive' : 'negative'}`;
+
+            document.getElementById('danCoverage').textContent = `${coverage.toFixed(1)}%`;
+
+            // Generate insight
+            let insight = '';
+            if (coverage >= 100) {
+                insight = `Dan's contributions fully covered your tips to others with $${Math.abs(deficit).toLocaleString()} surplus!`;
+            } else if (coverage >= 50) {
+                insight = `Dan covered ${coverage.toFixed(1)}% of your tips to others. You had a deficit of $${Math.abs(deficit).toLocaleString()}.`;
+            } else if (coverage >= 25) {
+                insight = `Dan covered ${coverage.toFixed(1)}% of your tips to others. Significant deficit of $${Math.abs(deficit).toLocaleString()}.`;
+            } else {
+                insight = `Dan covered only ${coverage.toFixed(1)}% of your tips to others. Large deficit of $${Math.abs(deficit).toLocaleString()}.`;
+            }
+
+            if (dan) {
+                insight += ` Dan sent you ${dan.transactions} transactions averaging $${(dan.received / dan.transactions).toFixed(2)} each.`;
+            }
+
+            document.getElementById('danInsight').textContent = insight;
+        }
+
+        function getCurrencyColor(currency) {
+            const colors = {
+                'BTC': '#f7931a', 'ETH': '#627eea', 'USDT': '#26a17b', 'USDC': '#2775ca',
+                'XRP': '#23292f', 'ADA': '#0033ad', 'SOL': '#9945ff', 'DOT': '#e6007a',
+                'MATIC': '#8247e5', 'LTC': '#bfbbbb', 'TRX': '#ff060a'
+            };
+            return colors[currency] || '#666666';
+        }
+
+        // Load data on page load
+        loadData();
+    </script>
+</body>
+</html>

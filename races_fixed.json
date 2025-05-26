@@ -1,0 +1,346 @@
+{
+  "data": {
+    "getFinishedExclusiveRacesByCreator": [
+      {
+        "id": "34",
+        "prize_pool": 100,
+        "currency_id": "456",
+        "start_date": "2024-10-07 00:00:00",
+        "end_date": "2024-10-13 23:59:59",
+        "sponsor_id": "2209",
+        "race_name": "$100 Weekly Sprint",
+        "style": "5",
+        "sponsored": true,
+        "competitors": [
+          {
+            "id": "2710",
+            "competitor_id": "2710",
+            "vip_level_name": "PLATINUM 2",
+            "display_name": "Player1",
+            "total_wagered": 16823.91,
+            "winner_amount": 50,
+            "position": 1,
+            "avatar": "https://example.com/avatar1.png"
+          },
+          {
+            "id": "8353",
+            "competitor_id": "8354",
+            "vip_level_name": "SILVER 2",
+            "display_name": "Player2",
+            "total_wagered": 3551.13,
+            "winner_amount": 25,
+            "position": 2,
+            "avatar": "https://example.com/avatar2.png"
+          }
+        ],
+        "sponsor": {
+          "id": "2209",
+          "username": "SupItsJ",
+          "vip_level_name": "DIAMOND 1"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "86",
+        "prize_pool": 200,
+        "currency_id": "456",
+        "start_date": "2024-10-14 00:00:00",
+        "end_date": "2024-10-20 23:59:59",
+        "sponsor_id": "8888",
+        "race_name": "$200 Community Race",
+        "style": "3",
+        "sponsored": false,
+        "competitors": [
+          {
+            "id": "1279",
+            "competitor_id": "1279",
+            "vip_level_name": "GOLD 3",
+            "display_name": "TopPlayer",
+            "total_wagered": 26484.55,
+            "winner_amount": 100,
+            "position": 1,
+            "avatar": "https://example.com/top_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "8888",
+          "username": "CommunityHost",
+          "vip_level_name": "GOLD 1"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "98",
+        "prize_pool": 500,
+        "currency_id": "404",
+        "start_date": "2024-11-03 00:00:00",
+        "end_date": "2024-11-09 23:59:59",
+        "sponsor_id": "9999",
+        "race_name": "$500 Big Race",
+        "style": "4",
+        "sponsored": false,
+        "competitors": [
+          {
+            "id": "1279",
+            "competitor_id": "1279",
+            "vip_level_name": "GOLD 3",
+            "display_name": "TopPlayer",
+            "total_wagered": 26484.55,
+            "winner_amount": 250,
+            "position": 1,
+            "avatar": "https://example.com/top_avatar.png"
+          },
+          {
+            "id": "8397",
+            "competitor_id": "8398",
+            "vip_level_name": "PLATINUM 3",
+            "display_name": "SecondPlace",
+            "total_wagered": 19734.51,
+            "winner_amount": 125,
+            "position": 2,
+            "avatar": "https://example.com/second_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "9999",
+          "username": "BigRaceHost",
+          "vip_level_name": "PLATINUM 1"
+        },
+        "currency": {
+          "id": "404",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "106",
+        "prize_pool": 1000,
+        "currency_id": "456",
+        "start_date": "2024-11-10 00:00:00",
+        "end_date": "2024-11-16 23:59:59",
+        "sponsor_id": "7777",
+        "race_name": "$1000 Mega Race",
+        "style": "6",
+        "sponsored": false,
+        "competitors": [
+          {
+            "id": "5555",
+            "competitor_id": "5555",
+            "vip_level_name": "DIAMOND 2",
+            "display_name": "MegaWinner",
+            "total_wagered": 45000.00,
+            "winner_amount": 500,
+            "position": 1,
+            "avatar": "https://example.com/mega_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "7777",
+          "username": "MegaHost",
+          "vip_level_name": "DIAMOND 2"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "142",
+        "prize_pool": 1000,
+        "currency_id": "456",
+        "start_date": "2024-11-17 00:00:00",
+        "end_date": "2024-11-23 23:59:59",
+        "sponsor_id": "6666",
+        "race_name": "$1000 Elite Competition",
+        "style": "7",
+        "sponsored": false,
+        "competitors": [
+          {
+            "id": "4444",
+            "competitor_id": "4444",
+            "vip_level_name": "PLATINUM 1",
+            "display_name": "ElitePlayer",
+            "total_wagered": 38000.00,
+            "winner_amount": 500,
+            "position": 1,
+            "avatar": "https://example.com/elite_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "6666",
+          "username": "EliteHost",
+          "vip_level_name": "PLATINUM 3"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "173",
+        "prize_pool": 100,
+        "currency_id": "456",
+        "start_date": "2024-11-24 00:00:00",
+        "end_date": "2024-11-30 23:59:59",
+        "sponsor_id": "2209",
+        "race_name": "$100 SupItsJ Special",
+        "style": "2",
+        "sponsored": true,
+        "competitors": [
+          {
+            "id": "3333",
+            "competitor_id": "3333",
+            "vip_level_name": "GOLD 2",
+            "display_name": "SpecialWinner",
+            "total_wagered": 8500.00,
+            "winner_amount": 50,
+            "position": 1,
+            "avatar": "https://example.com/special_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "2209",
+          "username": "SupItsJ",
+          "vip_level_name": "DIAMOND 1"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "212",
+        "prize_pool": 600,
+        "currency_id": "456",
+        "start_date": "2024-12-01 00:00:00",
+        "end_date": "2024-12-07 23:59:59",
+        "sponsor_id": "5555",
+        "race_name": "$600 December Challenge",
+        "style": "8",
+        "sponsored": false,
+        "competitors": [
+          {
+            "id": "2222",
+            "competitor_id": "2222",
+            "vip_level_name": "SILVER 1",
+            "display_name": "DecemberChamp",
+            "total_wagered": 22000.00,
+            "winner_amount": 300,
+            "position": 1,
+            "avatar": "https://example.com/december_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "5555",
+          "username": "DecemberHost",
+          "vip_level_name": "GOLD 3"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "235",
+        "prize_pool": 250,
+        "currency_id": "456",
+        "start_date": "2024-12-08 00:00:00",
+        "end_date": "2024-12-14 23:59:59",
+        "sponsor_id": "2209",
+        "race_name": "$250 SupItsJ Winter",
+        "style": "3",
+        "sponsored": true,
+        "competitors": [
+          {
+            "id": "1111",
+            "competitor_id": "1111",
+            "vip_level_name": "BRONZE 1",
+            "display_name": "WinterWinner",
+            "total_wagered": 12000.00,
+            "winner_amount": 125,
+            "position": 1,
+            "avatar": "https://example.com/winter_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "2209",
+          "username": "SupItsJ",
+          "vip_level_name": "DIAMOND 1"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "246",
+        "prize_pool": 250,
+        "currency_id": "456",
+        "start_date": "2024-12-15 00:00:00",
+        "end_date": "2024-12-21 23:59:59",
+        "sponsor_id": "2209",
+        "race_name": "$250 SupItsJ Holiday",
+        "style": "4",
+        "sponsored": true,
+        "competitors": [
+          {
+            "id": "9999",
+            "competitor_id": "9999",
+            "vip_level_name": "GOLD 1",
+            "display_name": "HolidayChamp",
+            "total_wagered": 15000.00,
+            "winner_amount": 125,
+            "position": 1,
+            "avatar": "https://example.com/holiday_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "2209",
+          "username": "SupItsJ",
+          "vip_level_name": "DIAMOND 1"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      },
+      {
+        "id": "268",
+        "prize_pool": 100,
+        "currency_id": "456",
+        "start_date": "2024-12-22 00:00:00",
+        "end_date": "2024-12-28 23:59:59",
+        "sponsor_id": "2209",
+        "race_name": "$100 SupItsJ Year End",
+        "style": "5",
+        "sponsored": true,
+        "competitors": [
+          {
+            "id": "8888",
+            "competitor_id": "8888",
+            "vip_level_name": "SILVER 3",
+            "display_name": "YearEndWinner",
+            "total_wagered": 7500.00,
+            "winner_amount": 50,
+            "position": 1,
+            "avatar": "https://example.com/yearend_avatar.png"
+          }
+        ],
+        "sponsor": {
+          "id": "2209",
+          "username": "SupItsJ",
+          "vip_level_name": "DIAMOND 1"
+        },
+        "currency": {
+          "id": "456",
+          "code": "USDT"
+        }
+      }
+    ]
+  }
+}

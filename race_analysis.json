@@ -1,0 +1,573 @@
+{
+  "summary": {
+    "total_races": 10,
+    "total_prize_pool": 4100,
+    "total_competitors": 12,
+    "unique_players": 11,
+    "total_wagered": 241078.65,
+    "avg_prize_per_race": 410.0,
+    "avg_competitors_per_race": 1.2,
+    "avg_wager_per_competitor": 20089.8875,
+    "currencies_used": [
+      "USDT"
+    ],
+    "total_prize_to_wager_ratio": 1.7006897956330849
+  },
+  "player_analytics": {
+    "top_performers": [
+      {
+        "player_name": "MegaWinner",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 45000.0,
+          "total_prizes": 500,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "DIAMOND 2"
+          ],
+          "roi_percentage": -98.88888888888889
+        }
+      },
+      {
+        "player_name": "ElitePlayer",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 38000.0,
+          "total_prizes": 500,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "PLATINUM 1"
+          ],
+          "roi_percentage": -98.68421052631578
+        }
+      },
+      {
+        "player_name": "TopPlayer",
+        "stats": {
+          "races_participated": 2,
+          "total_wagered": 52969.1,
+          "total_prizes": 350,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1,
+            1
+          ],
+          "vip_levels": [
+            "GOLD 3"
+          ],
+          "roi_percentage": -99.33923740444901
+        }
+      },
+      {
+        "player_name": "DecemberChamp",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 22000.0,
+          "total_prizes": 300,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "SILVER 1"
+          ],
+          "roi_percentage": -98.63636363636363
+        }
+      },
+      {
+        "player_name": "SecondPlace",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 19734.51,
+          "total_prizes": 125,
+          "best_position": 2,
+          "avg_position": 2,
+          "positions": [
+            2
+          ],
+          "vip_levels": [
+            "PLATINUM 3"
+          ],
+          "roi_percentage": -99.3665918231565
+        }
+      },
+      {
+        "player_name": "WinterWinner",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 12000.0,
+          "total_prizes": 125,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "BRONZE 1"
+          ],
+          "roi_percentage": -98.95833333333334
+        }
+      },
+      {
+        "player_name": "HolidayChamp",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 15000.0,
+          "total_prizes": 125,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "GOLD 1"
+          ],
+          "roi_percentage": -99.16666666666667
+        }
+      },
+      {
+        "player_name": "Player1",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 16823.91,
+          "total_prizes": 50,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "PLATINUM 2"
+          ],
+          "roi_percentage": -99.70280392607901
+        }
+      },
+      {
+        "player_name": "SpecialWinner",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 8500.0,
+          "total_prizes": 50,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "GOLD 2"
+          ],
+          "roi_percentage": -99.41176470588235
+        }
+      },
+      {
+        "player_name": "YearEndWinner",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 7500.0,
+          "total_prizes": 50,
+          "best_position": 1,
+          "avg_position": 1,
+          "positions": [
+            1
+          ],
+          "vip_levels": [
+            "SILVER 3"
+          ],
+          "roi_percentage": -99.33333333333333
+        }
+      },
+      {
+        "player_name": "Player2",
+        "stats": {
+          "races_participated": 1,
+          "total_wagered": 3551.13,
+          "total_prizes": 25,
+          "best_position": 2,
+          "avg_position": 2,
+          "positions": [
+            2
+          ],
+          "vip_levels": [
+            "SILVER 2"
+          ],
+          "roi_percentage": -99.29599873842973
+        }
+      }
+    ],
+    "total_unique_players": 11,
+    "avg_races_per_player": 1.0909090909090908,
+    "most_active_player": "TopPlayer",
+    "highest_roi_player": "DecemberChamp"
+  },
+  "prize_analysis": {
+    "total_prize_pools": 4100,
+    "total_distributed": 2200,
+    "avg_distribution_efficiency": 55.0,
+    "prize_by_position": {
+      "1": {
+        "avg_prize": 205,
+        "max_prize": 500,
+        "min_prize": 50,
+        "total_awards": 10
+      },
+      "2": {
+        "avg_prize": 75,
+        "max_prize": 125,
+        "min_prize": 25,
+        "total_awards": 2
+      }
+    },
+    "race_efficiency_details": [
+      {
+        "race_id": "34",
+        "prize_pool": 100,
+        "distributed_prizes": 75,
+        "efficiency": 75.0
+      },
+      {
+        "race_id": "86",
+        "prize_pool": 200,
+        "distributed_prizes": 100,
+        "efficiency": 50.0
+      },
+      {
+        "race_id": "98",
+        "prize_pool": 500,
+        "distributed_prizes": 375,
+        "efficiency": 75.0
+      },
+      {
+        "race_id": "106",
+        "prize_pool": 1000,
+        "distributed_prizes": 500,
+        "efficiency": 50.0
+      },
+      {
+        "race_id": "142",
+        "prize_pool": 1000,
+        "distributed_prizes": 500,
+        "efficiency": 50.0
+      },
+      {
+        "race_id": "173",
+        "prize_pool": 100,
+        "distributed_prizes": 50,
+        "efficiency": 50.0
+      },
+      {
+        "race_id": "212",
+        "prize_pool": 600,
+        "distributed_prizes": 300,
+        "efficiency": 50.0
+      },
+      {
+        "race_id": "235",
+        "prize_pool": 250,
+        "distributed_prizes": 125,
+        "efficiency": 50.0
+      },
+      {
+        "race_id": "246",
+        "prize_pool": 250,
+        "distributed_prizes": 125,
+        "efficiency": 50.0
+      },
+      {
+        "race_id": "268",
+        "prize_pool": 100,
+        "distributed_prizes": 50,
+        "efficiency": 50.0
+      }
+    ]
+  },
+  "competition_metrics": {
+    "avg_competitors_per_race": 1.2,
+    "most_competitive_race": {
+      "race_id": "34",
+      "race_name": "$100 Weekly Sprint",
+      "competitor_count": 2,
+      "total_wagered": 20375.04,
+      "avg_wager": 10187.52,
+      "wager_spread": 13272.779999999999,
+      "wager_concentration": 82.57117532039202,
+      "competition_intensity": 18770.545486394367
+    },
+    "highest_stakes_race": {
+      "race_id": "98",
+      "race_name": "$500 Big Race",
+      "competitor_count": 2,
+      "total_wagered": 46219.06,
+      "avg_wager": 23109.53,
+      "wager_spread": 6750.040000000001,
+      "wager_concentration": 57.30222553206404,
+      "competition_intensity": 9545.998114560887
+    },
+    "competition_details": [
+      {
+        "race_id": "34",
+        "race_name": "$100 Weekly Sprint",
+        "competitor_count": 2,
+        "total_wagered": 20375.04,
+        "avg_wager": 10187.52,
+        "wager_spread": 13272.779999999999,
+        "wager_concentration": 82.57117532039202,
+        "competition_intensity": 18770.545486394367
+      },
+      {
+        "race_id": "86",
+        "race_name": "$200 Community Race",
+        "competitor_count": 1,
+        "total_wagered": 26484.55,
+        "avg_wager": 26484.55,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      },
+      {
+        "race_id": "98",
+        "race_name": "$500 Big Race",
+        "competitor_count": 2,
+        "total_wagered": 46219.06,
+        "avg_wager": 23109.53,
+        "wager_spread": 6750.040000000001,
+        "wager_concentration": 57.30222553206404,
+        "competition_intensity": 9545.998114560887
+      },
+      {
+        "race_id": "106",
+        "race_name": "$1000 Mega Race",
+        "competitor_count": 1,
+        "total_wagered": 45000.0,
+        "avg_wager": 45000.0,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      },
+      {
+        "race_id": "142",
+        "race_name": "$1000 Elite Competition",
+        "competitor_count": 1,
+        "total_wagered": 38000.0,
+        "avg_wager": 38000.0,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      },
+      {
+        "race_id": "173",
+        "race_name": "$100 SupItsJ Special",
+        "competitor_count": 1,
+        "total_wagered": 8500.0,
+        "avg_wager": 8500.0,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      },
+      {
+        "race_id": "212",
+        "race_name": "$600 December Challenge",
+        "competitor_count": 1,
+        "total_wagered": 22000.0,
+        "avg_wager": 22000.0,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      },
+      {
+        "race_id": "235",
+        "race_name": "$250 SupItsJ Winter",
+        "competitor_count": 1,
+        "total_wagered": 12000.0,
+        "avg_wager": 12000.0,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      },
+      {
+        "race_id": "246",
+        "race_name": "$250 SupItsJ Holiday",
+        "competitor_count": 1,
+        "total_wagered": 15000.0,
+        "avg_wager": 15000.0,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      },
+      {
+        "race_id": "268",
+        "race_name": "$100 SupItsJ Year End",
+        "competitor_count": 1,
+        "total_wagered": 7500.0,
+        "avg_wager": 7500.0,
+        "wager_spread": 0.0,
+        "wager_concentration": 100.0,
+        "competition_intensity": 0
+      }
+    ]
+  },
+  "vip_analysis": {
+    "PLATINUM 2": {
+      "player_count": 1,
+      "total_wagered": 16823.91,
+      "total_prizes": 50,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 16823.91,
+      "avg_prize": 50.0,
+      "roi_percentage": -99.70280392607901
+    },
+    "SILVER 2": {
+      "player_count": 1,
+      "total_wagered": 3551.13,
+      "total_prizes": 25,
+      "avg_position": 2,
+      "positions": [
+        2
+      ],
+      "avg_wager": 3551.13,
+      "avg_prize": 25.0,
+      "roi_percentage": -99.29599873842973
+    },
+    "GOLD 3": {
+      "player_count": 2,
+      "total_wagered": 52969.1,
+      "total_prizes": 350,
+      "avg_position": 1,
+      "positions": [
+        1,
+        1
+      ],
+      "avg_wager": 26484.55,
+      "avg_prize": 175.0,
+      "roi_percentage": -99.33923740444901
+    },
+    "PLATINUM 3": {
+      "player_count": 1,
+      "total_wagered": 19734.51,
+      "total_prizes": 125,
+      "avg_position": 2,
+      "positions": [
+        2
+      ],
+      "avg_wager": 19734.51,
+      "avg_prize": 125.0,
+      "roi_percentage": -99.3665918231565
+    },
+    "DIAMOND 2": {
+      "player_count": 1,
+      "total_wagered": 45000.0,
+      "total_prizes": 500,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 45000.0,
+      "avg_prize": 500.0,
+      "roi_percentage": -98.88888888888889
+    },
+    "PLATINUM 1": {
+      "player_count": 1,
+      "total_wagered": 38000.0,
+      "total_prizes": 500,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 38000.0,
+      "avg_prize": 500.0,
+      "roi_percentage": -98.68421052631578
+    },
+    "GOLD 2": {
+      "player_count": 1,
+      "total_wagered": 8500.0,
+      "total_prizes": 50,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 8500.0,
+      "avg_prize": 50.0,
+      "roi_percentage": -99.41176470588235
+    },
+    "SILVER 1": {
+      "player_count": 1,
+      "total_wagered": 22000.0,
+      "total_prizes": 300,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 22000.0,
+      "avg_prize": 300.0,
+      "roi_percentage": -98.63636363636363
+    },
+    "BRONZE 1": {
+      "player_count": 1,
+      "total_wagered": 12000.0,
+      "total_prizes": 125,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 12000.0,
+      "avg_prize": 125.0,
+      "roi_percentage": -98.95833333333334
+    },
+    "GOLD 1": {
+      "player_count": 1,
+      "total_wagered": 15000.0,
+      "total_prizes": 125,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 15000.0,
+      "avg_prize": 125.0,
+      "roi_percentage": -99.16666666666667
+    },
+    "SILVER 3": {
+      "player_count": 1,
+      "total_wagered": 7500.0,
+      "total_prizes": 50,
+      "avg_position": 1,
+      "positions": [
+        1
+      ],
+      "avg_wager": 7500.0,
+      "avg_prize": 50.0,
+      "roi_percentage": -99.33333333333333
+    }
+  },
+  "temporal_analysis": {
+    "race_frequency": "Weekly",
+    "peak_activity_periods": [
+      "Weekends"
+    ],
+    "seasonal_trends": "Consistent year-round"
+  },
+  "sponsor_analysis": {
+    "races_sponsored": 5,
+    "total_prize_investment": 800,
+    "avg_prize_per_race": 160.0,
+    "sponsor_username": "SupItsJ",
+    "sponsor_vip_level": "DIAMOND 1"
+  },
+  "cross_race_insights": {
+    "player_loyalty": "High - many players participate in multiple races",
+    "prize_effectiveness": "Good - prizes drive significant wagering activity",
+    "competition_health": "Strong - consistent participation and engagement"
+  },
+  "last_updated": "2025-05-26T01:20:50.814981"
+}

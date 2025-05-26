@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Analytics Platform</title>
+    <meta name="description" content="Comprehensive cryptocurrency portfolio and race analytics platform">
+    <meta name="keywords" content="cryptocurrency, portfolio, analytics, race, gamba, tips, dashboard">
+    <meta name="author" content="SupItsJ">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://crypto-analytics-platform.vercel.app/">
+    <meta property="og:title" content="Crypto Analytics Platform">
+    <meta property="og:description" content="Comprehensive cryptocurrency portfolio and race analytics platform">
+    <meta property="og:image" content="https://crypto-analytics-platform.vercel.app/preview.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://crypto-analytics-platform.vercel.app/">
+    <meta property="twitter:title" content="Crypto Analytics Platform">
+    <meta property="twitter:description" content="Comprehensive cryptocurrency portfolio and race analytics platform">
+    <meta property="twitter:image" content="https://crypto-analytics-platform.vercel.app/preview.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .loading-container {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        .title {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        
+        .loading-text {
+            font-size: 1.1em;
+            opacity: 0.8;
+            animation: fadeInOut 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+        
+        .redirect-info {
+            margin-top: 20px;
+            font-size: 0.9em;
+            opacity: 0.7;
+        }
+    </style>
+    
+    <script>
+        // Redirect to dashboard after a brief delay
+        setTimeout(() => {
+            window.location.href = '/dashboard_launcher.html';
+        }, 2000);
+        
+        // Immediate redirect if user clicks
+        document.addEventListener('click', () => {
+            window.location.href = '/dashboard_launcher.html';
+        });
+    </script>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="logo">🚀</div>
+        <h1 class="title">Crypto Analytics Platform</h1>
+        <p class="subtitle">Comprehensive portfolio and race analytics</p>
+        <div class="loading-text">Loading dashboard...</div>
+        <div class="redirect-info">Click anywhere to continue</div>
+    </div>
+</body>
+</html>
